@@ -55,8 +55,8 @@ export class ProductModalComponent implements OnInit, OnDestroy {
     });
   }
 
-  handleImageUpload(event: any): void {
-    this.selectedImage = event.target.files[0];
+  handleImageUpload(event:Event): void {
+    this.selectedImage = ((event.target as HTMLInputElement).files as FileList)[0];
     this.productForm.patchValue({ image: this.selectedImage });
     this.productForm.get('image')!!.updateValueAndValidity();
   }
