@@ -1,0 +1,114 @@
+<div class="product-modal">
+  <div class="modal-title">
+    <h3 *ngIf="!data">{{"DASHBOARD.PRODUCT_MODAL.ADD_PRODUCT" | translate}}</h3>
+    <h3 *ngIf="data">{{"DASHBOARD.PRODUCT_MODAL.EDIT_PRODUCT" | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.TITLE" | translate}}:</label>
+        <input type="text" formControlName="title" class="form-control" />
+        <div
+          *ngIf="
+            productForm.controls.title.touched &&
+            productForm.controls.title.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.TITLE_ERROR" | translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.PRICE" | translate}}:</label>
+        <input type="number" formControlName="price" class="form-control" />
+        <div
+          *ngIf="
+            productForm.controls.price.touched &&
+            productForm.controls.price.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.PRICE_ERROR" | translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.DESCRIPTION" | translate}}:</label>
+        <textarea formControlName="description" class="form-control"></textarea>
+        <div
+          *ngIf="
+            productForm.controls.description.touched &&
+            productForm.controls.description.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.DESCRIPTION_ERROR" | translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.IMAGE" | translate}}:</label>
+        <input
+          type="file"
+          (change)="handleImageUpload($event)"
+          accept="image/*"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            productForm.controls.image.touched &&
+            productForm.controls.image.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.IMAGE_ERROR" | translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.RATING" | translate}}:</label>
+        <input type="number" formControlName="rating" class="form-control" />
+        <div
+          *ngIf="
+            productForm.controls.rating.touched &&
+            productForm.controls.rating.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.RATING_ERROR" | translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>{{"DASHBOARD.PRODUCT_MODAL.COUNT" | translate}}:</label>
+        <input type="number" formControlName="count" class="form-control" />
+        <div
+          *ngIf="
+            productForm.controls.count.touched &&
+            productForm.controls.count.errors?.required
+          "
+          class="error-message"
+        >
+        {{"DASHBOARD.PRODUCT_MODAL.COUNT_ERROR" | translate}}
+        </div>
+      </div>
+      <div class="actions">
+        <button
+          type="submit"
+          [disabled]="productForm.invalid"
+          class="submit"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+            (click)="onCancel()"
+          class="cancel"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

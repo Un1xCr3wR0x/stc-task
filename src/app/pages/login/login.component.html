@@ -1,0 +1,50 @@
+<div class="login-container">
+  <img src="assets/images/logo.png" alt="" />
+  <form [formGroup]="loginForm" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="control">
+      <label for="username">{{"LOGIN.USERNAME" | translate}}</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form.submitted && getFormField.username.errors
+        }"
+      />
+      <div
+        *ngIf="form.submitted && getFormField.username.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="getFormField.username.errors.required">
+          {{"LOGIN.USERNAME_ERROR" | translate}}
+        </div>
+      </div>
+    </div>
+    <div class="control">
+      <label for="password">{{"LOGIN.PASSWORD" | translate}}</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form.submitted && getFormField.password.errors
+        }"
+      />
+      <div
+        *ngIf="form.submitted && getFormField.password.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="getFormField.password.errors.required">
+          {{"LOGIN.PASSWORD_ERROR" | translate}}
+        </div>
+      </div>
+    </div>
+    <button [disabled]="loadingService.isLoading()" class="btn btn-primary">
+      <span
+        *ngIf="loadingService.isLoading()"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      {{"LOGIN.LOGIN" | translate}}
+    </button>
+  </form>
+</div>

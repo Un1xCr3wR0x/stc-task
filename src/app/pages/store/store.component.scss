@@ -1,0 +1,25 @@
+@import "base/index";
+.store-container {
+    .categories {
+        padding:20px;
+        display: flex;
+        margin:0px 10%;
+        background: $primary-dark;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        li{
+            margin:0px 10px;
+            color:$white;
+            color: #ffffff;
+            border-right: 1px solid #fff;
+            padding: 0 20px;
+            cursor: pointer;
+            &:last-of-type {
+                border-right:0px solid transparent
+            }
+        }
+    }
+    .content {
+        padding: 20px 50px;
+    }
+}

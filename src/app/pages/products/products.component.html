@@ -1,0 +1,15 @@
+<div class="products-wrapper">
+  <div class="head">Products</div>
+  <div class="products" *ngIf="products.length > 0">
+    <div class="product" *ngFor="let product of products">
+      <div class="image">
+        <img [src]="product.image" alt="" />
+      </div>
+      <div class="title">
+        <a [routerLink]="['/store/products/product', product.id]">
+          {{ product.title }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

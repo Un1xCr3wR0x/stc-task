@@ -1,0 +1,34 @@
+@import 'base/index';
+mat-snack-bar-container {
+    &.error {
+        .mdc-snackbar__surface {
+            background:$status-error-main;
+            .mat-mdc-snack-bar-label {
+                color:$white;
+            }
+            .mat-mdc-snack-bar-action {
+                background:$status-error-dark;
+
+                .mdc-button__label {
+                    color:$white;
+                }
+            }
+        }
+    }
+
+    &.success {
+        .mdc-snackbar__surface {
+            background:$status-sucess-light;
+            .mat-mdc-snack-bar-label {
+                color:$white;
+            }
+            .mat-mdc-snack-bar-action {
+                background:$white;
+
+                .mdc-button__label {
+                    color:$black;
+                }
+            }
+        }
+    }
+}

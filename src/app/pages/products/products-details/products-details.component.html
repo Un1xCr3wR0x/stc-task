@@ -1,0 +1,24 @@
+<div class="product-details" *ngIf="productDetails">
+  <div class="head">
+    {{ productDetails.title }}
+  </div>
+  <div class="content">
+    <div class="image">
+      <img [src]="productDetails.image" [alt]="productDetails.title" />
+    </div>
+    <p>{{ productDetails.description }}</p>
+    <div class="details">
+      <div class="category">
+        {{ productDetails.category }}
+      </div>
+      <div class="price">
+        {{ productDetails.price | currency:'USD' }}
+      </div>
+      <div class="rating">
+        <mat-icon *ngFor="let rate of [1,2,3,4,5];index as i">
+            {{showIcon(i)}}
+        </mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

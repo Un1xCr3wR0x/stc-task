@@ -1,0 +1,53 @@
+{
+  "GLOBAL": {
+    "EDIT": "تعديل",
+    "DELETE": "حذف"
+  },
+  "LOGIN": {
+    "USERNAME": "أسم المستخدم",
+    "USERNAME_ERROR": "أسم المستخدم مطلوب",
+    "PASSWORD": "كلمة المرور",
+    "PASSWORD_ERROR": "كلمة المرور مطلوب",
+    "LOGIN": "تسجيل الدخول"
+  },
+  "HEADER": {
+    "PRODUCTS": "المنتجات",
+    "DASHBOARD": "لوحة التحكم",
+    "LOGOUT": "تسجيل الخروج"
+  },
+  "DASHBOARD": {
+    "STORE_PRODUCTS": "منتجات المتجر",
+    "ADD_PRODUCT": "إضافة منتج",
+    "TABLE": {
+      "PAGINATION_TEXT": "منتجات لكل صفحة",
+      "COLUMNS": {
+        "ID": "الكود",
+        "TITLE": "الاسم",
+        "PRICE": "السعر",
+        "CATEGORY": "الفئة",
+        "ACTIONS": "الأجراءات"
+      }
+    },
+    "PRODUCT_MODAL": {
+      "ADD_PRODUCT": "إضافة منتج",
+      "EDIT_PRODUCT": "تعديل منتج",
+      "TITLE": "الاسم",
+      "TITLE_ERROR": "الاسلم مطلوب",
+      "PRICE": "السعر",
+      "PRICE_ERROR": "السعر مطلوب",
+      "DESCRIPTION": "الوصف",
+      "DESCRIPTION_ERROR": "الوصف مطلوب",
+      "IMAGE": "الصورة",
+      "IMAGE_ERROR": "الصورة مطلوبة",
+      "RATING": "التقيم",
+      "RATING_ERROR": "التقيم مطلوب",
+      "COUNT": "العدد",
+      "COUNT_ERROR": "العدد مطلوب"
+    },
+    "TOAST": {
+      "SUCCESSFULLY_ADDED": "تم إضافة المنتج",
+      "SUCCESSFULLY_UPDATED": "تم تعديل المنتج",
+      "SUCCESSFULLY_DELETED": "تم حذف المنتج"
+    }
+  }
+}

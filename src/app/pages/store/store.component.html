@@ -1,0 +1,11 @@
+<div class="store-container">
+    <app-header></app-header>
+    <ul class="categories">
+      <li *ngFor="let category of categories" (click)="selectCategory(category)">
+        {{ category }}
+      </li>
+    </ul>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

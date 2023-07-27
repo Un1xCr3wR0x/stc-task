@@ -1,0 +1,48 @@
+{
+  "GLOBAL": {
+    "EDIT": "Edit",
+    "DELETE": "Delete"
+  },
+  "LOGIN": {
+    "USERNAME": "Username",
+    "USERNAME_ERROR": "Username is required",
+    "PASSWORD": "Password",
+    "PASSWORD_ERROR": "Password is required",
+    "LOGIN": "Login"
+  },
+  "HEADER": {
+    "PRODUCTS": "Products",
+    "DASHBOARD": "Dashboard",
+    "LOGOUT": "Logout"
+  },
+  "DASHBOARD": {
+    "STORE_PRODUCTS": "Store Products",
+    "ADD_PRODUCT": "Add Product",
+    "TABLE": {
+      "PAGINATION_TEXT": "Products per page",
+      "COLUMNS": {
+        "ID": "Id",
+        "TITLE": "Title",
+        "PRICE": "Price",
+        "CATEGORY": "Category",
+        "ACTIONS": "Actions"
+      }
+    },
+    "PRODUCT_MODAL": {
+      "ADD_PRODUCT": "Add Product",
+      "EDIT_PRODUCT": "Edit Product",
+      "TITLE": "Title",
+      "TITLE_ERROR": "Title is required",
+      "PRICE": "Price",
+      "PRICE_ERROR": "Price is required",
+      "DESCRIPTION": "Description",
+      "DESCRIPTION_ERROR": "Description is required",
+      "IMAGE": "Image",
+      "IMAGE_ERROR": "Image is required",
+      "RATING": "Rating",
+      "RATING_ERROR": "Rating is required",
+      "COUNT": "Count",
+      "COUNT_ERROR": "Count is required"
+    }
+  }
+}

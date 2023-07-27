@@ -1,0 +1,8 @@
+<main [dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="preloader" *ngIf="loadingService.isLoading()">
+    <div id="loader"></div>
+  </div>
+</main>
