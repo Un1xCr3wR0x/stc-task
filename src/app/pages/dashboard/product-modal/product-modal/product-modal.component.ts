@@ -67,7 +67,7 @@ export class ProductModalComponent implements OnInit, OnDestroy {
         this.productService
           .editProduct(this.selectedProduct.id, this.productForm.value)
           .pipe(takeUntil(this.destroySubject))
-          .subscribe((res) => {
+          .subscribe(() => {
             this.productForm.reset();
             this.dialogRef.close(true);
           });
@@ -75,7 +75,7 @@ export class ProductModalComponent implements OnInit, OnDestroy {
         this.productService
           .addNewProduct(this.productForm.value)
           .pipe(takeUntil(this.destroySubject))
-          .subscribe((res) => {
+          .subscribe(() => {
             this.dialogRef.close(true);
           });
       }

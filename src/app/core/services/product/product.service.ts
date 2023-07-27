@@ -1,6 +1,7 @@
-import { Injectable,signal,WritableSignal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { ProductRequest } from '../../interfaces/product-request.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -8,17 +9,17 @@ export class ProductService {
   categoryName: BehaviorSubject<string> = new BehaviorSubject<string>('');
   constructor(private http: HttpClient) {}
 
-  setCategoryName(category:string) {
+  setCategoryName(category:string):void {
     this.categoryName.next(category)
   }
-  getCategoryName() {
+  getCategoryName():Observable<string> {
     return this.categoryName.asObservable()
   }
-  getAllProducts() {
+  getAllProducts():Observable<any> {
     return this.http.get('https://fakestoreapi.com/products');
   }
 
-  addNewProduct(data: any) {
+  addNewProduct(data: ProductRequest):Observable<any> {
     let payload = {
       title: data.title,
       descripton: data.description,
@@ -33,7 +34,7 @@ export class ProductService {
       .post('https://fakestoreapi.com/products', payload);
   }
 
-  editProduct(productId: number, data: any) {
+  editProduct(productId: number, data: ProductRequest):Observable<any> {
     let payload = {
       title: data.title,
       descripton: data.description,
@@ -50,16 +51,15 @@ export class ProductService {
     );
   }
 
-  deleteProduct(productId: number) {
+  deleteProduct(productId: number):Observable<any> {
     return this.http.delete(`https://fakestoreapi.com/products/${productId}`);
   }
 
-  getAllCategories() {
+  getAllCategories():Observable<any> {
     return this.http.get('https://fakestoreapi.com/products/categories');
   }
 
-  getCategoryProducts(category: string) {
-    debugger;
+  getCategoryProducts(category: string):Observable<any> {
     return this.http.get(
       `https://fakestoreapi.com/products/category/${category}`
     );
