@@ -14,11 +14,11 @@ export class ProductService {
   getCategoryName() {
     return this.categoryName.asObservable()
   }
-  getAllProducts(): Observable<any> {
+  getAllProducts() {
     return this.http.get('https://fakestoreapi.com/products');
   }
 
-  addNewProduct(data: any): Observable<any> {
+  addNewProduct(data: any) {
     let payload = {
       title: data.title,
       descripton: data.description,
@@ -33,7 +33,7 @@ export class ProductService {
       .post('https://fakestoreapi.com/products', payload);
   }
 
-  editProduct(productId: number, data: any): Observable<any> {
+  editProduct(productId: number, data: any) {
     let payload = {
       title: data.title,
       descripton: data.description,
@@ -50,15 +50,15 @@ export class ProductService {
     );
   }
 
-  deleteProduct(productId: number): Observable<any> {
+  deleteProduct(productId: number) {
     return this.http.delete(`https://fakestoreapi.com/products/${productId}`);
   }
 
-  getAllCategories(): Observable<any> {
+  getAllCategories() {
     return this.http.get('https://fakestoreapi.com/products/categories');
   }
 
-  getCategoryProducts(category: string): Observable<any> {
+  getCategoryProducts(category: string) {
     debugger;
     return this.http.get(
       `https://fakestoreapi.com/products/category/${category}`
