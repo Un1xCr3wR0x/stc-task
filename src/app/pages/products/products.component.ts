@@ -28,7 +28,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productService.categoryName
       .pipe(takeUntil(this.destroySubject))
       .subscribe((res) => {
-        console.log(res);
         this.selectedCategory = res;
         this.getCategoryProduct();
       });

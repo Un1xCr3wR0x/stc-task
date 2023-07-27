@@ -29,16 +29,15 @@ import { LocalizationService } from 'src/app/core/services/localization/localiza
     MatPaginatorModule,
     MatDialogModule,
     TranslateModule,
-    ProductModalComponent
+    ProductModalComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit,OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['id', 'title', 'price', 'category', 'actions'];
   data = new MatTableDataSource<Product>();
   private destroySubject: Subject<void> = new Subject();
-
 
   isRateLimitReached: boolean = false;
 
@@ -49,11 +48,10 @@ export class DashboardComponent implements OnInit,OnDestroy {
     public loadingService: LoadingService,
     private toastService: ToastService,
     public dialog: MatDialog,
-    private localizationService:LocalizationService
+    private localizationService: LocalizationService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.paginator)
     this.getallProducts();
   }
 
@@ -61,67 +59,74 @@ export class DashboardComponent implements OnInit,OnDestroy {
    * get all products and start pagination after it
    */
   getallProducts(): void {
-    this.productService.getAllProducts().pipe(
-      takeUntil(this.destroySubject)
-    ).subscribe((res) => {
-      this.data = new MatTableDataSource<Product>(res);
-      this.paginator._intl.itemsPerPageLabel = this.localizationService.instant('DASHBOARD.TABLE.PAGINATION_TEXT')
-      this.data.paginator = this.paginator;
-    });
+    this.productService
+      .getAllProducts()
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((res) => {
+        this.data = new MatTableDataSource<Product>(res);
+        this.paginator._intl.itemsPerPageLabel =
+          this.localizationService.instant('DASHBOARD.TABLE.PAGINATION_TEXT');
+        this.data.paginator = this.paginator;
+      });
   }
 
   /**
    * delete product method that will navigate to the product edit page
    */
-  deleteProduct(productId: number):void {
+  deleteProduct(productId: number): void {
     this.productService
-      .deleteProduct(productId).pipe(
-        takeUntil(this.destroySubject)
-      )
+      .deleteProduct(productId)
+      .pipe(takeUntil(this.destroySubject))
       .subscribe(() => {
         this.toastService.openToast({
-          message:'Product Deleted Successfully.',
-          type:ToastType.Success
-        })
+          message: 'Product Deleted Successfully.',
+          type: ToastType.Success,
+        });
       });
   }
 
   /**
    * edit product method that will navigate to the product edit page
    */
-  editProduct(product: Product):void {
+  editProduct(product: Product): void {
     const dialogRef = this.dialog.open(ProductModalComponent, {
       data: { product },
     });
 
-    dialogRef.afterClosed().pipe(
-      takeUntil(this.destroySubject)
-    ).subscribe(() => {
-      this.toastService.openToast({
-        message:'Product Updated Successfully.',
-        type:ToastType.Success
-      })
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((result) => {
+        if(result) {
+          this.toastService.openToast({
+            message: 'Product Updated Successfully.',
+            type: ToastType.Success,
+          });
+        }
+      });
   }
 
   /**
    * start the add new product cycle
    */
-  onAddNewProduct():void {
+  onAddNewProduct(): void {
     const dialogRef = this.dialog.open(ProductModalComponent);
 
-    dialogRef.afterClosed().pipe(
-      takeUntil(this.destroySubject)
-    ).subscribe((result) => {
-      this.toastService.openToast({
-        message:'Product Added Successfully.',
-        type:ToastType.Success
-      })
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((result) => {
+        if (result) {
+          this.toastService.openToast({
+            message: 'Product Added Successfully.',
+            type: ToastType.Success,
+          });
+        }
+      });
   }
 
   ngOnDestroy() {
     // clean up
-    this.destroySubject.next()
+    this.destroySubject.next();
   }
 }

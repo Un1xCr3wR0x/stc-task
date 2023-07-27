@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit,OnDestroy {
     if (this.loginForm.invalid) {
       return;
     }
-    console.log(this.loginForm);
     this.authService
       .login(this.loginForm.value)
       .pipe(first())
